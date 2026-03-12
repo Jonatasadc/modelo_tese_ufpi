@@ -1,0 +1,119 @@
+@echo off
+setlocal
+title Instalador de Packages do Preambulo
+
+REM ============================================================
+REM INSTALADOR DE PACOTES DO PREAMBULO VIA MIKTEX
+REM ------------------------------------------------------------
+REM ESTE ARQUIVO DEVE FICAR DENTRO DA PASTA manual
+REM ELE PROCURA tese_ufpi.tex NA PASTA PAI APENAS PARA
+REM CONFIRMAR QUE ESTA NO PROJETO CERTO
+REM ------------------------------------------------------------
+REM ESTE SCRIPT NAO ANALISA O PROJETO INTEIRO
+REM ELE INSTALA APENAS OS PACOTES LISTADOS ABAIXO
+REM ============================================================
+
+REM TEMPO DE ESPERA ENTRE AS INSTALACOES
+set DELAY=1
+
+REM PASTA ONDE O .BAT ESTA
+set "SCRIPT_DIR=%~dp0"
+
+REM PASTA PAI DA PASTA manual
+cd /d "%SCRIPT_DIR%.."
+set "ROOT_DIR=%CD%"
+
+REM VOLTA PARA A PASTA DO SCRIPT
+cd /d "%SCRIPT_DIR%"
+
+REM ARQUIVO PRINCIPAL APENAS PARA VALIDACAO
+set "MAIN_FILE=tese_ufpi.tex"
+set "MAIN_PATH=%ROOT_DIR%\%MAIN_FILE%"
+
+echo ============================================================
+echo   INSTALADOR DE PACOTES DO PREAMBULO VIA MIKTEX
+echo ============================================================
+echo.
+
+if not exist "%MAIN_PATH%" (
+    echo ERRO: nao encontrei "%MAIN_FILE%" na pasta que contem a pasta manual.
+    echo.
+    echo Caminho esperado:
+    echo %MAIN_PATH%
+    echo.
+    echo Clique em qualquer tecla para fechar.
+    pause >nul
+    exit /b 1
+)
+
+where mpm >nul 2>nul
+if errorlevel 1 (
+    echo ERRO: o comando mpm nao foi encontrado.
+    echo Verifique se o MiKTeX esta instalado corretamente.
+    echo.
+    echo Clique em qualquer tecla para fechar.
+    pause >nul
+    exit /b 1
+)
+
+echo [1/2] Instalando apenas os pacotes do preambulo...
+echo.
+
+echo Instalando: latex-uni8
+mpm --install=latex-uni8
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: amsmath
+mpm --install=amsmath
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: amsfonts
+mpm --install=amsfonts
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: amscls
+mpm --install=amscls
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: jknappen
+mpm --install=jknappen
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: doublestroke
+mpm --install=doublestroke
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: eulervm
+mpm --install=eulervm
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: latex-tools
+mpm --install=latex-tools
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: geometry
+mpm --install=geometry
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: fancyhdr
+mpm --install=fancyhdr
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: graphics
+mpm --install=graphics
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: hyperref
+mpm --install=hyperref
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: todonotes
+mpm --install=todonotes
+timeout /t %DELAY% /nobreak >nul
+
+echo.
+echo [2/2] Processo concluido.
+echo Foram instalados apenas os nomes listados neste arquivo.
+echo.
+echo Clique em qualquer tecla para fechar.
+pause >nul

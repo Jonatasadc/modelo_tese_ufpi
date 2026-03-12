@@ -1,0 +1,166 @@
+
+% =========================================================
+% MANUAL RÁPIDO DE USO DO BIBTEX NO MODELO DE TESE UFPI
+% =========================================================
+%
+%
+% ---------------------------------------------------------
+% 1. ARQUIVOS ENVOLVIDOS
+% ---------------------------------------------------------
+%
+% Neste modelo, a bibliografia é controlada principalmente
+% por dois arquivos:
+%
+% 1) referencias_tese.bib
+%    -> guarda as entradas bibliográficas.
+%
+% 2) tese_ufpi_revisada.tex
+%    -> arquivo principal, que chama a bibliografia no final.
+%
+% No arquivo principal, costumam aparecer linhas como:
+%
+% \bibliographystyle{plain}
+% \bibliography{referencias_tese}
+%
+% A primeira linha escolhe o estilo da bibliografia.
+% A segunda informa o nome do arquivo .bib.
+%
+% ---------------------------------------------------------
+% 2. COMO INSERIR UMA REFERÊNCIA NO ARQUIVO .BIB
+% ---------------------------------------------------------
+%
+% Cada item bibliográfico recebe uma chave única.
+% Exemplo:
+%
+% @article{grigoryan1999,
+%   author  = {Grigor'yan, Alexander},
+%   title   = {Analytic and geometric background of recurrence and non-explosion of the Brownian motion on Riemannian manifolds},
+%   journal = {Bulletin of the American Mathematical Society},
+%   volume  = {36},
+%   number  = {2},
+%   pages   = {135--249},
+%   year    = {1999}
+% }
+%
+% Aqui, a chave é: grigoryan1999
+%
+% É essa chave que será usada em:
+%
+% \cite{grigoryan1999}
+%
+% ---------------------------------------------------------
+% 3. COMO CITAR NO TEXTO
+% ---------------------------------------------------------
+%
+% Para citar uma referência no corpo da tese, use por exemplo:
+%
+% Como em \cite{grigoryan1999}, ...
+%
+% Para citar mais de uma referência ao mesmo tempo:
+%
+% Ver \cite{grigoryan1999,pessoa}.
+%
+% ---------------------------------------------------------
+% 4. TIPOS MAIS COMUNS DE ENTRADA
+% ---------------------------------------------------------
+%
+% Os formatos mais usados no arquivo .bib são:
+%
+% @article
+% -> artigo publicado em periódico
+%
+% @book
+% -> livro
+%
+% @incollection
+% -> capítulo de livro
+%
+% @misc
+% -> preprint, nota técnica, material sem formato editorial fixo
+%
+% Exemplo de livro:
+%
+% @book{evans,
+%   author    = {Evans, Lawrence C.},
+%   title     = {Partial Differential Equations},
+%   publisher = {American Mathematical Society},
+%   year      = {2010}
+% }
+%
+% Exemplo de preprint:
+%
+% @misc{pessoa,
+%   author        = {Pessoa, Leandro F. and Pigola, Stefano and Setti, Alberto G.},
+%   title         = {Dirichlet parabolicity and {$L^{1}$}-Liouville property under localized geometric conditions},
+%   howpublished  = {arXiv preprint},
+%   eprint        = {1607.06483},
+%   archivePrefix = {arXiv},
+%   primaryClass  = {math.DG},
+%   year          = {2017}
+% }
+%
+% ---------------------------------------------------------
+% 5. ORDEM DE COMPILAÇÃO
+% ---------------------------------------------------------
+%
+% Quando o documento usa BibTeX, a sequência típica é:
+%
+% pdflatex tese_ufpi_revisada
+% bibtex tese_ufpi_revisada
+% pdflatex tese_ufpi_revisada
+% pdflatex tese_ufpi_revisada
+%
+% No VS Code, isso pode ser automatizado pela extensão
+% LaTeX Workshop, desde que a receita de compilação inclua BibTeX.
+%
+% ---------------------------------------------------------
+% 6. CUIDADOS IMPORTANTES
+% ---------------------------------------------------------
+%
+% - Não repetir a mesma chave em duas entradas diferentes.
+% - Usar uma chave curta e fácil de reconhecer.
+% - Preencher os campos essenciais: autor, título e ano.
+% - Em artigos, incluir também periódico, volume, número e páginas.
+% - Em preprints, incluir eprint, archivePrefix e primaryClass.
+%
+% ---------------------------------------------------------
+% 7. SUGESTÃO DE PADRÃO PARA AS CHAVES
+% ---------------------------------------------------------
+%
+% Um padrão simples e limpo:
+%
+% sobrenomeAno
+%
+% ou, quando houver vários autores:
+%
+% primeiroAutorAno
+%
+% Exemplos:
+% grigoryan1999
+% pigola2013
+% holopainen1990
+%
+% ---------------------------------------------------------
+% 8. EXEMPLO COMPLETO DE USO NO TEXTO
+% ---------------------------------------------------------
+%
+% Suponha que o arquivo referencias_tese.bib contenha a entrada:
+%
+% grigoryan1999
+%
+% Então, no capítulo, você pode escrever:
+%
+% A discussão analítica de recorrência e não explosão pode ser encontrada em \cite{grigoryan1999}.
+%
+% Ao compilar corretamente, a citação aparecerá no texto
+% e a referência completa será listada ao final da tese.
+%
+% ---------------------------------------------------------
+% OBSERVAÇÃO FINAL
+% ---------------------------------------------------------
+%
+% Este arquivo foi pensado como manual de leitura direta no código.
+% Portanto, o conteúdo principal está em comentários.
+% Se quiser, depois você pode manter este arquivo apenas como
+% documentação interna do modelo.
+%

@@ -1,0 +1,22 @@
+CUIDADO
+
+Arquivos .bat executam comandos no sistema operacional. Por isso, antes de rodar qualquer arquivo desse tipo, o ideal é abrir o arquivo no Bloco de Notas e ler o conteúdo com atenção.
+
+Se houver dúvida sobre algum comando, recomenda-se copiar o conteúdo do arquivo e pedir ao GPT uma verificação, perguntando se existe algo suspeito, malicioso ou desnecessário. Isso ajuda a reduzir o risco de executar comandos que alterem o sistema de forma indevida.
+
+Cuidados recomendados:
+- não executar arquivos .bat de origem desconhecida;
+- abrir o arquivo e verificar o que ele faz antes de rodar;
+- usar o GPT para revisar o conteúdo quando houver dúvida;
+- evitar executar como administrador sem necessidade;
+- manter antivírus e sistema atualizados.
+
+Caso a pessoa não queira fazer a instalação automática por arquivo .bat, é possível realizar a instalação manualmente.
+
+Alternativa manual:
+- abrir o MiKTeX Console;
+- procurar os packages necessários;
+- instalar manualmente os pacotes desejados;
+- depois testar a compilação do arquivo da tese no editor.
+
+Essa alternativa é mais lenta, mas dá mais controle sobre o que está sendo instalado no sistema.

@@ -1,0 +1,92 @@
+@echo off
+setlocal
+title Instalador do Ambiente LaTeX da Tese
+
+REM ============================================================
+REM INSTALADOR DO AMBIENTE LATEX DA TESE
+REM ESTE ARQUIVO DEVE FICAR DENTRO DA PASTA manual
+REM ELE PROCURA tese_ufpi.tex NA PASTA PAI
+REM ============================================================
+
+set DELAY=1
+
+REM Pasta onde o .bat esta
+set "SCRIPT_DIR=%~dp0"
+
+REM Pasta pai da pasta manual
+cd /d "%SCRIPT_DIR%.."
+set "ROOT_DIR=%CD%"
+
+REM Volta para a pasta do script
+cd /d "%SCRIPT_DIR%"
+
+REM Arquivo principal
+set "MAIN_FILE=tese_ufpi.tex"
+set "MAIN_PATH=%ROOT_DIR%\%MAIN_FILE%"
+
+echo ====================================================
+echo Instalando ambiente para compilar a tese
+echo ====================================================
+echo.
+echo Pasta do script : %SCRIPT_DIR%
+echo Pasta do projeto: %ROOT_DIR%
+echo Arquivo da tese : %MAIN_PATH%
+echo.
+
+if not exist "%MAIN_PATH%" (
+    echo ERRO: nao encontrei "%MAIN_FILE%" na pasta que contem a pasta manual.
+    echo.
+    echo Clique em qualquer tecla para fechar.
+    pause >nul
+    exit /b 1
+)
+
+where winget >nul 2>nul
+if errorlevel 1 (
+    echo ERRO: Winget nao encontrado.
+    echo Atualize o Windows ou instale o App Installer.
+    echo.
+    echo Clique em qualquer tecla para fechar.
+    pause >nul
+    exit /b 1
+)
+
+echo [1/4] Instalando Visual Studio Code...
+winget install -e --id Microsoft.VisualStudioCode --accept-source-agreements --accept-package-agreements
+timeout /t %DELAY% /nobreak >nul
+echo.
+
+echo [2/4] Instalando MiKTeX...
+winget install -e --id MiKTeX.MiKTeX --accept-source-agreements --accept-package-agreements
+timeout /t %DELAY% /nobreak >nul
+echo.
+
+echo [3/4] Instalando Strawberry Perl...
+winget install -e --id StrawberryPerl.StrawberryPerl --accept-source-agreements --accept-package-agreements
+timeout /t %DELAY% /nobreak >nul
+echo.
+
+set "CODECMD=code"
+
+where code >nul 2>nul
+if errorlevel 1 (
+    if exist "%LocalAppData%\Programs\Microsoft VS Code\bin\code.cmd" set "CODECMD=%LocalAppData%\Programs\Microsoft VS Code\bin\code.cmd"
+)
+
+if not exist "%CODECMD%" (
+    echo AVISO: nao foi possivel localizar o comando code agora.
+    echo Abra o VS Code uma vez e execute este arquivo novamente.
+    echo.
+    echo Clique em qualquer tecla para fechar.
+    pause >nul
+    exit /b 1
+)
+
+echo [4/4] Instalando extensao LaTeX Workshop...
+"%CODECMD%" --install-extension James-Yu.latex-workshop
+timeout /t %DELAY% /nobreak >nul
+echo.
+
+echo Processo concluido.
+echo Clique em qualquer tecla para fechar.
+pause >nul

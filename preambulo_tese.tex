@@ -1,0 +1,169 @@
+% ============================================================
+% PREÂMBULO DO MODELO DE TESE UFPI
+% Objetivo: manter o arquivo organizado, comentado e fácil de editar.
+% Observação: este modelo foi pensado para textos matemáticos em português.
+% ============================================================
+
+% ------------------------------------------------------------
+% IDIOMA E CODIFICAÇÃO
+% ------------------------------------------------------------
+% babel: traduz automaticamente nomes como "Chapter", "Contents", etc.
+\usepackage[brazil]{babel}
+
+% inputenc: permite digitar diretamente com acentos no arquivo-fonte.
+\usepackage[utf8]{inputenc}
+
+% fontenc: melhora a saída PDF com palavras acentuadas e hifenização.
+\usepackage[T1]{fontenc}
+
+% ------------------------------------------------------------
+% MATEMÁTICA
+% ------------------------------------------------------------
+% amsmath: recursos centrais para fórmulas e ambientes matemáticos.
+\usepackage{amsmath}
+
+% amssymb: símbolos matemáticos adicionais.
+\usepackage{amssymb}
+
+% amsthm: ambientes de teorema, lema, proposição, definição etc.
+\usepackage{amsthm}
+
+% amsfonts: fontes matemáticas adicionais.
+\usepackage{amsfonts}
+
+% mathrsfs: caligrafia matemática alternativa, útil para alguns símbolos.
+\usepackage{mathrsfs}
+
+% dsfont: permite usar, por exemplo, \mathds{R}, \mathds{N}, etc.
+\usepackage{dsfont}
+
+% eulervm: altera o visual da matemática para a família Euler.
+\usepackage{eulervm}
+
+% ------------------------------------------------------------
+% ENUMERAÇÃO E FORMATAÇÃO GERAL
+% ------------------------------------------------------------
+% enumerate: controle simples de listas enumeradas.
+\usepackage{enumerate}
+
+% geometry: ajusta margens e espaçamentos de página.
+\usepackage{geometry}
+
+% fancyhdr: personaliza cabeçalhos e numeração de páginas.
+\usepackage{fancyhdr}
+
+% graphicx: insere figuras e logotipos.
+\usepackage{graphicx}
+
+%referencias clicáveis.
+\usepackage{hyperref}
+
+%notas (opcional) - use \todo{revisar esta definição}  ou \todo[inline]{melhorar esta explicação}.
+\setlength{\marginparwidth}{2cm}
+\usepackage{todonotes}
+
+%mostra todos os labels exceto referencias e nem citações.
+\usepackage[notcite]{showkeys}
+
+% ------------------------------------------------------------
+% GEOMETRIA DA PÁGINA
+% ------------------------------------------------------------
+\geometry{
+  a4paper,
+  tmargin=2.5cm,
+  bmargin=2.5cm,
+  lmargin=3cm,
+  rmargin=2cm,
+  headsep=5mm,
+  footskip=1cm
+}
+
+% Espaçamento entre linhas.
+\renewcommand{\baselinestretch}{1.5}
+
+% ------------------------------------------------------------
+% CABEÇALHO E RODAPÉ
+% ------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhead[L]{{\bfseries \nouppercase \leftmark}}
+\fancyhead[R]{\thepage}
+\fancyfoot{}
+\setlength{\headheight}{15pt}
+
+% ------------------------------------------------------------
+% AMBIENTES DE TEOREMA
+% Padronização recomendada: usar nomes completos no código.
+% Mantivemos alguns apelidos antigos por compatibilidade com arquivos já escritos.
+% ------------------------------------------------------------
+
+% Estilo em itálico para resultados.
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{corolario}[teorema]{Corolário}
+
+% Estilo normal para definições e exemplos.
+\theoremstyle{definition}
+\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{exemplo}[teorema]{Exemplo}
+
+% Estilo normal para observações.
+\theoremstyle{remark}
+\newtheorem{observacao}[teorema]{Observação}
+
+% ------------------------------------------------------------
+% COMANDOS MATEMÁTICOS PADRONIZADOS
+% ------------------------------------------------------------
+
+% Conjuntos numéricos.
+\newcommand{\R}{\mathds{R}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\C}{\mathds{C}}
+
+% Letras caligráficas recorrentes.
+% Você pode adicionar sua Letra aqui!
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Ec}{\mathcal{E}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\Sc}{\mathcal{S}}
+
+% Notações recorrentes já usadas no projeto.
+\newcommand{\sig}{\Sigma^n}
+\newcommand{\sigg}{\Sigma}
+\newcommand{\Ite}[1]{\noindent (#1)}
+\newcommand{\denote}{{\noindent\bfseries Notação.\,\,}}
+\newcommand{\remarks}{{\noindent\bfseries Observações.\,\,}}
+\newcommand{\claim}{{\noindent\bfseries Afirmação.\,\,}}
+
+% ------------------------------------------------------------
+% OPERADORES MATEMÁTICOS
+% Recomenda-se \DeclareMathOperator para operadores, pois ajusta o espaçamento.
+% ------------------------------------------------------------
+\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\osc}{osc}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\Area}{Area}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\Hess}{Hess}
+\DeclareMathOperator{\Ric}{Ric}
+\DeclareMathOperator{\Rm}{Rm}
+\DeclareMathOperator{\Scal}{Scal}
+
+% ------------------------------------------------------------
+% AJUSTES ÚTEIS PARA O MODELO
+% ------------------------------------------------------------
+% Número da equação acompanhando o capítulo: (1.1), (1.2), ...
+\numberwithin{equation}{chapter}
+
+% Nomes automáticos em português para referências textuais, se desejado no futuro.
+% Exemplo de uso possível com hyperref/cleveref, caso venha a ser incorporado.
+

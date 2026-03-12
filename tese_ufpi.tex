@@ -1,0 +1,30 @@
+% Adicione o sinal antes de \input{...} quando nao quiser renderizar algum capítulo.
+% Por Exemplo: Editando apenas o capítulo 1 faça nos outros:
+% . . .\begin{document}
+%         %\input{capa}
+%         %\input{introducao}
+%          \input{cap1_preliminar}
+%         %\input{cap2}
+%         %\input{cap3}
+%         %\input{cap4}
+% RECOMENDADO PARA FICAR MAIS LEVE.
+\documentclass[a4paper,12pt]{report}
+\input{preambulo_tese}
+\begin{document}
+    \input{capa}
+    \input{introducao}
+    \input{cap1_preliminar}
+    \input{cap2}
+    \input{cap3}
+    \input{cap4}
+
+    % Para fazer as referências recomendo ler manual_bibtex.tex na pasto do modelo.
+    \bibliographystyle{plain}       % estilo da bibliografia
+    \bibliography{referencias_tese} % nome do arquivo .bib, sem a extensão
+\end{document}
+
+% ===================== ASSINATURA (não imprime no PDF) =====================
+% Criado por: Jônatas Arrais de Castro
+% Email/PIX: jonatasarrais.ja@gmail.com
+% Mande um FeedBack/Vale um café?
+% ========================================================================== 

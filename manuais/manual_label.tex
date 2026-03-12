@@ -1,0 +1,76 @@
+% MANUAL RAPIDO: LABEL, REF, EQREF E HYPERREF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%================================================
+% 1. \label{nome}
+%=================================================
+% Cria um marcador interno no LaTeX.
+% Esse marcador serve para guardar o numero de uma secao, equacao,
+% teorema ou outro elemento numerado.
+%-------------------------------------------------
+% Exemplo:
+%
+%       \section{Introducao}
+%       \label{sec:intro}
+%
+% Aqui, o nome sec:intro fica associado ao numero da secao.
+%
+%=======================================================
+% 2. \ref{nome}
+%=======================================================
+% Recupera o numero salvo pelo \label.
+% Ele mostra apenas o numero, sem parenteses.
+%------------------------------------------------------
+% Exemplo:
+
+%       Veja a Seção \ref{sec:intro}.
+%
+% Se a secao acima for a secao 1, o resultado sera:
+% Veja a Seção 1.
+%
+%=======================================================
+% 3. \eqref{nome}
+%=======================================================
+% Recupera o numero de uma equacao com parenteses.
+% Esse comando e usado para equacoes numeradas.
+% Para funcionar, e preciso carregar o pacote amsmath.
+%-------------------------------------------------------
+% Exemplo:
+%       \begin{equation}
+%       \label{eq:principal}
+%       x^2+y^2=1
+%       \end{equation}
+%
+%       Veja a equação \eqref{eq:principal}.
+%
+% Se essa for a equacao 3, o resultado sera:
+% Veja a equação (3).
+%
+%=======================================================
+% 4. \usepackage{hyperref}
+%=======================================================
+% Esse pacote faz as referencias virarem links clicaveis no PDF.
+% Ou seja, ao clicar em \ref ou \eqref no PDF,
+% o leitor vai direto para a secao ou equacao correspondente.
+%---------------------------------------------------------
+% Exemplo no preambulo:
+%
+%       \usepackage{hyperref}
+%
+%
+% 5. EXEMPLO COMPLETO
+%
+%       \usepackage{amsmath}
+%       \usepackage{hyperref}
+%
+%       \section{Exemplo}
+%       \label{sec:exemplo}
+%           |
+%           |    \begin{equation}
+%           |    \label{eq:teste}
+%           |     |   x^2+y^2=1
+%           |   \end{equation}
+%           |
+%           |   Veja a Seção \ref{sec:exemplo}.
+%           |   Veja a equação \eqref{eq:teste}.
+%

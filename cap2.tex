@@ -1,0 +1,40 @@
+\chapter{Título do capitulo 2}\label{chap2}
+    
+
+\section{Exemplo de uso de label, ref e todo}
+\label{sec:introducao}
+
+Este é um exemplo simples para mostrar como usar \texttt{\textbackslash label},
+\texttt{\textbackslash ref}, \texttt{\textbackslash todo}, \texttt{\textbackslash todo[inline]},
+\texttt{refcheck} e \texttt{showkeys}.
+
+% todo na margem
+\todo{Revisar}
+
+Na Seção \ref{sec:introducao}, começamos a explicar o uso de referências internas.
+
+\begin{equation}
+\label{eq:principal}
+x^2+y^2=1
+\end{equation}
+
+A equação \eqref{eq:principal} representa a circunferência unitária.
+
+% todo inline dentro do texto
+\todo[inline]{Melhorar a explicação geométrica da equação \eqref{eq:principal}.}
+
+\subsection{Mais um exemplo}
+\label{subsec:exemplo}
+
+Agora fazemos referência novamente à Seção \ref{sec:introducao}
+e à equação \eqref{eq:principal}.
+
+\begin{teorema}
+\label{thm:teste}
+Se $x=y=0$, então a equação \eqref{eq:principal} não é satisfeita.
+\end{teorema}
+
+O Teorema \ref{thm:teste} é apenas ilustrativo.
+
+
+% Comece aqui!sss
