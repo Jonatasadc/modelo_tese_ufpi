@@ -3,6 +3,8 @@ PROJETO — MODELO DE TESE UFPI
 Este projeto reúne materiais de apoio para uso de um modelo de tese em LaTeX, com foco em organização, instalação do ambiente e escrita acadêmica.
 
 1) Faça as instalações necessárias(VER PASTA MANUAIS/) seguindo a ordem;
+------ Para TexStudio. Leia: usar_no_Texstudio na pasta manuais
+------ Para usar no Visual Studio Code: Leio o arquivo pdf 
 2) Use IA para verificar que não há nada malicioso nos códigos instalar_extencoes.txt e instalar_packages.txt.
 3) Verifique os passos opcionais: Passo 8 e passo 9.
 
