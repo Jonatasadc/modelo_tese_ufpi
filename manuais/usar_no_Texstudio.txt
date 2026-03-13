@@ -1,0 +1,2 @@
+TEXSTUDIO
+Para usar no Tex Studio. Apenas abra tese_ufpi.tex (Ele vai puxar os outros módulos.)
