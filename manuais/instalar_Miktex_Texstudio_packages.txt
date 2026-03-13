@@ -1,0 +1,111 @@
+@echo off
+setlocal
+title Instalador MiKTeX + TeXstudio + packages
+
+set DELAY=1
+
+echo ====================================================
+echo Instalando MiKTeX, TeXstudio e packages do projeto
+echo ====================================================
+echo.
+
+where winget >nul 2>nul
+if errorlevel 1 (
+    echo ERRO: Winget nao encontrado.
+    echo Atualize o Windows ou instale o App Installer.
+    echo.
+    echo Pressione qualquer tecla para sair.
+    pause >nul
+    exit /b 1
+)
+
+echo [1/3] Instalando MiKTeX...
+winget install -e --id MiKTeX.MiKTeX --source winget --accept-source-agreements --accept-package-agreements
+timeout /t %DELAY% /nobreak >nul
+echo.
+
+echo [2/3] Instalando TeXstudio...
+winget install -e --id TeXstudio.TeXstudio --source winget --accept-source-agreements --accept-package-agreements
+timeout /t %DELAY% /nobreak >nul
+echo.
+
+set "MPMCMD="
+
+where mpm >nul 2>nul
+if not errorlevel 1 set "MPMCMD=mpm"
+
+if not defined MPMCMD if exist "%LocalAppData%\Programs\MiKTeX\miktex\bin\x64\mpm.exe" set "MPMCMD=%LocalAppData%\Programs\MiKTeX\miktex\bin\x64\mpm.exe"
+if not defined MPMCMD if exist "%ProgramFiles%\MiKTeX\miktex\bin\x64\mpm.exe" set "MPMCMD=%ProgramFiles%\MiKTeX\miktex\bin\x64\mpm.exe"
+if not defined MPMCMD if exist "%LocalAppData%\Programs\MiKTeX 2.9\miktex\bin\x64\mpm.exe" set "MPMCMD=%LocalAppData%\Programs\MiKTeX 2.9\miktex\bin\x64\mpm.exe"
+if not defined MPMCMD if exist "%ProgramFiles%\MiKTeX 2.9\miktex\bin\x64\mpm.exe" set "MPMCMD=%ProgramFiles%\MiKTeX 2.9\miktex\bin\x64\mpm.exe"
+
+if not defined MPMCMD (
+    echo AVISO: nao foi possivel localizar o mpm.exe agora.
+    echo O MiKTeX pode ter sido instalado, mas talvez seja preciso fechar e abrir o terminal
+    echo ou instalar os packages manualmente no MiKTeX Console.
+    echo.
+    echo Pressione qualquer tecla para sair.
+    pause >nul
+    exit /b 1
+)
+echo [3/3] Instalando apenas os pacotes do preambulo...
+echo.
+
+echo Instalando: latex-uni8
+mpm --install=latex-uni8
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: amsmath
+mpm --install=amsmath
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: amsfonts
+mpm --install=amsfonts
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: amscls
+mpm --install=amscls
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: jknappen
+mpm --install=jknappen
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: doublestroke
+mpm --install=doublestroke
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: eulervm
+mpm --install=eulervm
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: latex-tools
+mpm --install=latex-tools
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: geometry
+mpm --install=geometry
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: fancyhdr
+mpm --install=fancyhdr
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: graphics
+mpm --install=graphics
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: hyperref
+mpm --install=hyperref
+timeout /t %DELAY% /nobreak >nul
+
+echo Instalando: todonotes
+mpm --install=todonotes
+timeout /t %DELAY% /nobreak >nul
+
+echo.
+echo [2/2] Processo concluido.
+echo Foram instalados apenas os nomes listados neste arquivo.
+echo.
+echo Clique em qualquer tecla para fechar.
+pause >nul
