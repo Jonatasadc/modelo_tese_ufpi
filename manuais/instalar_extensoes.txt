@@ -36,7 +36,7 @@ echo.
 if not exist "%MAIN_PATH%" (
     echo ERRO: nao encontrei "%MAIN_FILE%" na pasta que contem a pasta manual.
     echo.
-    echo Clique em qualquer tecla para fechar.
+    echo Pressione qualquer tecla para sair.
     pause >nul
     exit /b 1
 )
@@ -46,47 +46,56 @@ if errorlevel 1 (
     echo ERRO: Winget nao encontrado.
     echo Atualize o Windows ou instale o App Installer.
     echo.
-    echo Clique em qualquer tecla para fechar.
+    echo Pressione qualquer tecla para sair.
     pause >nul
     exit /b 1
 )
 
-echo [1/4] Instalando Visual Studio Code...
-winget install -e --id Microsoft.VisualStudioCode --accept-source-agreements --accept-package-agreements
+echo [1/6] Instalando Visual Studio Code...
+winget install -e --id Microsoft.VisualStudioCode --source winget --accept-source-agreements --accept-package-agreements
 timeout /t %DELAY% /nobreak >nul
 echo.
 
-echo [2/4] Instalando MiKTeX...
-winget install -e --id MiKTeX.MiKTeX --accept-source-agreements --accept-package-agreements
+echo [2/6] Instalando Git...
+winget install -e --id Git.Git --source winget --accept-source-agreements --accept-package-agreements
 timeout /t %DELAY% /nobreak >nul
 echo.
 
-echo [3/4] Instalando Strawberry Perl...
-winget install -e --id StrawberryPerl.StrawberryPerl --accept-source-agreements --accept-package-agreements
+echo [3/6] Instalando MiKTeX...
+winget install -e --id MiKTeX.MiKTeX --source winget --accept-source-agreements --accept-package-agreements
 timeout /t %DELAY% /nobreak >nul
 echo.
 
-set "CODECMD=code"
-
-where code >nul 2>nul
-if errorlevel 1 (
-    if exist "%LocalAppData%\Programs\Microsoft VS Code\bin\code.cmd" set "CODECMD=%LocalAppData%\Programs\Microsoft VS Code\bin\code.cmd"
-)
+set "CODECMD=%LocalAppData%\Programs\Microsoft VS Code\bin\code.cmd"
 
 if not exist "%CODECMD%" (
     echo AVISO: nao foi possivel localizar o comando code agora.
     echo Abra o VS Code uma vez e execute este arquivo novamente.
     echo.
-    echo Clique em qualquer tecla para fechar.
+    echo Pressione qualquer tecla para sair.
     pause >nul
     exit /b 1
 )
 
-echo [4/4] Instalando extensao LaTeX Workshop...
-"%CODECMD%" --install-extension James-Yu.latex-workshop
+echo [4/6] Instalando extensao LaTeX Workshop...
+call "%CODECMD%" --install-extension James-Yu.latex-workshop
 timeout /t %DELAY% /nobreak >nul
 echo.
 
+echo [5/6] Instalando extensao GitHub Copilot Chat...
+call "%CODECMD%" --install-extension GitHub.copilot-chat
+timeout /t %DELAY% /nobreak >nul
+echo.
+
+echo [6/6] Instalando GitHub CLI...
+winget install -e --id GitHub.cli --source winget --accept-source-agreements --accept-package-agreements
+timeout /t %DELAY% /nobreak >nul
+echo.
+
+echo Instalando Strawberry Perl...
+winget install -e --id StrawberryPerl.StrawberryPerl --source winget --accept-source-agreements --accept-package-agreements
+timeout /t 1 /nobreak >nul
+echo.
 echo Processo concluido.
-echo Clique em qualquer tecla para fechar.
+echo Pressione qualquer tecla para sair.
 pause >nul
