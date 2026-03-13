@@ -1,2 +1,7 @@
 TEXSTUDIO
-Para usar no Tex Studio. Apenas abra tese_ufpi.tex (Ele vai puxar os outros módulos.)
+Abra no bloco de notas instalar_Miktex_Texstudio_packages.txt;
+Salvar Como;
+troque .txt para .bat (aqui é um executável, logo para mais traquilidades verifique se tem algo malicioso usando AI.)
+Execute. 
+Para usar no Tex Studio:
+Apenas abra tese_ufpi.tex no programa (Ele vai puxar os outros módulos.)
